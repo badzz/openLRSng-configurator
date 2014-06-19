@@ -147,6 +147,7 @@ PSP.process_data = function(command, message_buffer, message_length) {
             BIND_DATA.modem_params = data.getUint8(39);
             BIND_DATA.flags = data.getUint8(40);
 
+			BIND_DATA.serial_downlink = data.getUint8(41);
             GUI.log(chrome.i18n.getMessage('bind_data_received'));
             break;
         case PSP.PSP_REQ_RX_CONFIG:
@@ -414,7 +415,7 @@ function send_TX_config(callback) {
     view.setUint32(5, TX_CONFIG.flags, 1);
 
     // bind_data data crunch
-    var bind_data = new ArrayBuffer(41); // size must always match the struct size on the mcu, otherwise transmission will fail!
+    var bind_data = new ArrayBuffer(42); // size must always match the struct size on the mcu, otherwise transmission will fail!
     var view = new DataView(bind_data, 0);
     var needle = 0;
 
@@ -434,6 +435,7 @@ function send_TX_config(callback) {
 
     view.setUint8(needle++, BIND_DATA.modem_params);
     view.setUint8(needle++, BIND_DATA.flags);
+	view.setUint8(needle++, BIND_DATA.serial_downlink);
 
     // 8 bit arrays ready for sending
     var tx_data = new Uint8Array(tx_config);

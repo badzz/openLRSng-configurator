@@ -17,7 +17,8 @@ var BIND_DATA = {
     rf_channel_spacing: 0,
     hopchannel:         Array(24),
     modem_params:       0,
-    flags:              0
+    flags:              0,
+	serial_downlink:	0
 };
 
 // tx_config (exact replica of one stored inside MCU)

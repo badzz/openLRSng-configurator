@@ -4,8 +4,8 @@
     "version": "0.45.1",
 
     "author": "openLRSng team",
-    "name": "openLRSng - Configurator",
-    "short_name": "openLRSng",
+    "name": "openLRSng - Configurator - badz",
+    "short_name": "openLRSngBadz",
     "description": "Crossplatform configuration tool for openLRSng project",
 
     "offline_enabled": true,
